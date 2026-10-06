@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProyectoService {
@@ -12,6 +13,7 @@ public class ProyectoService {
     //crea y guarda la lista
 
     private List<Proyecto> listaProyectos = new ArrayList<>();
+
 
     public ProyectoService() {
         listaProyectos.add(new Proyecto(
@@ -40,7 +42,7 @@ public class ProyectoService {
 
         listaProyectos.add(new Proyecto(
                 4L,
-                "Sistema que usa el negocio + sus clientes",
+                "Sistema de Turnos y Reservas Online",
                 "url imagen",
                 "Aplicación web que permite a los clientes consultar horarios disponibles y reservar turnos, mientras el negocio administra su agenda, las reservas y el estado de cada turno",
                 List.of("JAVA", "SPRINGBOOT")
@@ -52,6 +54,13 @@ public class ProyectoService {
 
     public List<Proyecto> obtenerProyectos() {
         return listaProyectos;
+    }
+
+    public Optional<Proyecto> obtenerProyecto(Long id) {
+
+        return listaProyectos.stream()
+                .filter(proyecto -> proyecto.getIdProyecto().equals(id))
+                .findFirst();
     }
 
 

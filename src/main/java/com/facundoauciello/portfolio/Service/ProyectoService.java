@@ -10,58 +10,89 @@ import java.util.Optional;
 @Service
 public class ProyectoService {
 
-    //crea y guarda la lista
-
-    private List<Proyecto> listaProyectos = new ArrayList<>();
-
+    private final List<Proyecto> listaProyectos = new ArrayList<>();
 
     public ProyectoService() {
+
         listaProyectos.add(new Proyecto(
                 1L,
                 "ConectarDocentes",
-                "url imagen",
-                "Plataforma para conectar instituciones con docentes mediante ofertas laborales y postulaciones (Plataforma Web)",
-                List.of("JAVA" , "SPRINGBOOT")
+                List.of(
+                        "/imagenes/conectar-docentes/1.png",
+                        "/imagenes/conectar-docentes/2.png",
+                        "/imagenes/conectar-docentes/3.png"
+                ),
+                "Plataforma para conectar instituciones con docentes mediante ofertas laborales y postulaciones.",
+                List.of(
+                        "JAVA",
+                        "SPRING BOOT",
+                        "MYSQL",
+                        "REACT",
+                        "TYPESCRIPT"
+                )
         ));
 
         listaProyectos.add(new Proyecto(
                 2L,
                 "Gestion de Consultorio Odontologico",
-                "url imagen",
-                "Sistema para administrar pacientes, turnos y el seguimiento de los tratamientos realizados en un consultorio odontológico (Sistema interno Administrativo)",
-                List.of("JAVA", "SPRINGBOOT")
+                List.of(
+                        "/imagenes/consultorio/1.png",
+                        "/imagenes/consultorio/2.png",
+                        "/imagenes/consultorio/3.png"
+                ),
+                "Sistema para administrar pacientes, turnos y el seguimiento de tratamientos realizados en un consultorio odontologico.",
+                List.of(
+                        "JAVA",
+                        "SPRING BOOT",
+                        "MYSQL"
+                )
         ));
 
         listaProyectos.add(new Proyecto(
                 3L,
                 "Gestion de Productos y Stock",
-                "url imagen",
-                "Sistema interno para administrar productos, controlar el stock disponible y registrar entradas y salidas de mercadería, facilitando la organización y el seguimiento del inventario del negocio (Sistema interno para Comercios)",
-                List.of("JAVA", "SPRINGBOOT")
+                List.of(
+                        "/imagenes/stock/1.png",
+                        "/imagenes/stock/2.png",
+                        "/imagenes/stock/3.png"
+                ),
+                "Sistema para administrar productos, controlar el stock disponible y registrar entradas y salidas de mercaderia.",
+                List.of(
+                        "JAVA",
+                        "SPRING BOOT",
+                        "MYSQL",
+                        "REACT",
+                        "TYPESCRIPT"
+                )
         ));
 
         listaProyectos.add(new Proyecto(
                 4L,
                 "Sistema de Turnos y Reservas Online",
-                "url imagen",
-                "Aplicación web que permite a los clientes consultar horarios disponibles y reservar turnos, mientras el negocio administra su agenda, las reservas y el estado de cada turno",
-                List.of("JAVA", "SPRINGBOOT")
-                ));
+                List.of(
+                        "/imagenes/turnos/1.png",
+                        "/imagenes/turnos/2.png",
+                        "/imagenes/turnos/3.png"
+                ),
+                "Aplicacion web que permite consultar horarios disponibles y reservar turnos, mientras el negocio administra su agenda y reservas.",
+                List.of(
+                        "JAVA",
+                        "SPRING BOOT",
+                        "MYSQL",
+                        "REACT",
+                        "TYPESCRIPT"
+                )
+        ));
     }
-
-
-    //devuelve la lista de proyectos
 
     public List<Proyecto> obtenerProyectos() {
         return listaProyectos;
     }
 
     public Optional<Proyecto> obtenerProyecto(Long id) {
-
         return listaProyectos.stream()
                 .filter(proyecto -> proyecto.getIdProyecto().equals(id))
                 .findFirst();
     }
-
 
 }

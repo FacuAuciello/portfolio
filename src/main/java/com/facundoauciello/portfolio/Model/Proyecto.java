@@ -15,8 +15,8 @@ public class Proyecto {
 
     private Long idProyecto;
     private String nombre;
-    private String fotoUrl;
+    private List<String> imagenes;;
     private String descripcion;
-    private List tecnologias;
+    private List<String> tecnologias;
 
 }
